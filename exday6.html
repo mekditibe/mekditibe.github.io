@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            color:aqua;
+            padding:10%;
+            background-color: black;
+            border: 2px solid white;
+        }
+    </style>
+    <script>
+        window.onload = function (){
+            document.getElementById("clickme").onclick = changeColor;
+            document.getElementById("id2").onclick = swapText;
+            document.getElementById("clickme").onclick = myClick;
+
+        }
+        function swapText() {
+                var span = document.getElementById("output2");
+                console.log(1., span);
+                var textBox = document.getElementById("textbox2");
+                var temp = span.innerHTML;
+                console.log(2., temp);
+                console.log(3., textBox.value)
+                span.innerHTML = textBox.value;
+                console.log(4., span.innerHTML);
+                textBox.value = temp;
+                console.log(5., textBox.value)
+
+            }
+           // document.getElementById("b1")= myClick();
+        function myClick(){
+            const searchbox =document.getElementById("b0").value;
+            console.log("you are searching for ......");
+            console.log(searchbox);
+        }
+        function changeColor() {
+            const clickMe = document.getElementById("clickme");
+            clickMe.style.color = "red";
+            console.log("Yes working")
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos accusantium provident suscipit consequatur eum, consectetur quibusdam pariatur a harum placeat minus, voluptatem vel dicta odio optio consequuntur veniam repellendus ad.</p>
+            <div id="b1"><button type="submit">Submit</button></div>
+            <input type="text" placeholder="search" id="b0" name="serarchFor" />
+        <div>
+            <br>
+        </div>
+        </div>
+        <button id="id2">Click me!</button>
+        <span id="output2">Hello</span>
+        <input id="textbox2" type="text" value="Goodbye" />
+        <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos accusantium provident suscipit consequatur eum, consectetur quibusdam pariatur a harum placeat minus, voluptatem vel dicta odio optio consequuntur veniam repellendus ad.</p>
+            <button id="clickme">Color Me</button>
+        </div>
+    </form>
+</body>
+</html>

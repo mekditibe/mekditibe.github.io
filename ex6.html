@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#buttonId1").click(function(){
+                // $("#idList").css("font-family","Helvetica").css("color", "blue");
+
+                let tag= "<select multiple>";
+                $("li").each(function(index,element){
+                    console.log($(element).html());
+                    tag+="<option>"+ $(element).html() +"</option>";
+                    console.log(tag);
+
+                })
+                tag+="<option>"+ "addtional1" +"</option>";
+                tag+="<option>"+ "addtional2" +"</option>";
+                tag+="</select>";
+                console.log(tag);
+                $("ul").replaceWith(tag);
+            });
+        });
+
+            //     $("buttonId").click(function(){
+    //     $("#tableId").children().each(function(index,element){
+    //         console.log($(element).html());
+    //         $(element).children().each(function(inx,ele){
+    //             console.log($(ele).html());
+    //             $(ele).css("color", "blue").css("font-family", "Helvetica").css("font-size","20px");
+    //         })
+    //     })
+    // });
+    </script>
+</head>
+<body>
+    <h1>Hello Mekdes</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus possimus et aliquid quisquam, nobis, nesciunt inventore, dolor repellendus error velit soluta? Aperiam at nesciunt exercitationem laborum ipsam blanditiis consequatur voluptatem?</p>
+    <div>
+        <ul id="idList"> List of Job
+            <li>List 1</li>
+            <li>List 2</li>
+            <li>List 3</li>
+        </ul>
+    </div>
+    <button id="buttonId1">Submit </button>
+    <!-- <select multiple>
+        <option>List 1</option>
+        <option>List 2</option>
+        <option>List 3</option>
+
+    <select multiple>
+        <option>
+
+        </option>
+    </select> -->
+</body>
+</html>

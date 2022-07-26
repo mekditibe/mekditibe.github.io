@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        table{
+            margin: 10px 0;
+            width:200px;
+        }
+        table th, table td{
+            padding: 6px;
+            text-align: center;
+        }
+        table, th,td{
+            border: 1px solid
+        }
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            $("#butn1").click(function(){
+                let op="<select>";
+                $("div>ul>li").each(function(index,ele){
+                    op+="<option>"+ $(ele).html()+" id "+index +"</option>";
+                    console.log("in...")
+                })
+                op+="</select>";
+                $("div>ul").replaceWith(op);
+            })  
+            $("#butn2").click(function(){
+                $("table tbody").css("color", "green");
+                let op= "<ol>";
+                let op2= "<ol>";
+
+                $("table>tbody>tr").each(function(index,ele){
+                        op+="<li>"+$(ele).html() +"</li>";
+                })
+                op+="</ol>";
+                $("table>tbody").replaceWith(op);
+                $("ol").css("margin-bottom","300px").css("width", "60px").css("height","50px").css("color","blue");
+
+                // $("table>tbody").each(function(index,ele){
+                //         op2+="<li>"+index+" "+$(ele).html() +"</li>";
+                // })
+                // op2+="</ol>";
+                // op+=op2;
+            })
+            
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>List 1</li>
+            <li>List 2</li>
+            <li>List 3</li>
+            <li>List 4</li>
+        </ul>
+    </div>
+    <!-- <select>
+        <option></option>
+    </select> -->
+    <div>
+        <button id="butn1">Cleck To change</button>
+    </div>
+    <br>
+    <h>After button</button> </h>
+  <table>
+    <tr>
+        <th>Col_1</th>
+        <th>Col_2</th>
+        <th>Col_3</th>
+    </tr>
+    <tr>
+        <td>row 01</td>
+        <td>row 02</td>
+        <td>row 03</td>
+    </tr>
+    <tr>
+        <td>row 21</td>
+        <td>row 22</td>
+        <td>row 23</td>
+    </tr>
+    <tr>
+        <td>row 31</td>
+        <td>row 32</td>
+        <td>row 33</td>
+    </tr>
+    <tr>
+        <td>row 41</td>
+        <td>row 42</td>
+        <td>row 43</td>
+    </tr>
+  </table>
+  <div>
+    <button id="butn2">Cleck To Change The Table</button>
+</div>
+<br>
+
+</body>
+</html>

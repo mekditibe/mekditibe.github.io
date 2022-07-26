@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <script src="account.js" async></script>
+    <style>
+        div{
+            margin-top:3%;
+            margin-bottom:2%
+        }
+        
+    </style>
+</head>
+<body>
+    <h>ING Bank</h>
+    <div>
+        <div>
+           <div>
+            <label>Full Name</label>
+            <input id="name" type="text" placeholder="name" value=""/>
+            </div>
+            <div>
+            <label>Account Type</label>
+            <input id="accounttype" type="text" placeholder="account type" value=""/>
+            </div>
+            <div>
+            <label>Balance</label>
+            <input id="balance" type="text" placeholder="0.0" value=""/>
+            </div>
+            <div>
+            <label>Discription</label>
+            <div>
+            <textarea id="discription" type="text" placeholder="" value=""></textarea>
+            </div>
+            <div>
+                <button id="saveId" type="button" onClick="saveAccount()">Save It</button>
+            </div>
+            </div>
+            
+        </div>
+        <div>
+            <label>Show Seved Account Here.....</label>
+            <textarea style="width:60%; height: 40%;" id="savedOne"></textarea>
+        </div>
+    </div>
+</body>
+</html>

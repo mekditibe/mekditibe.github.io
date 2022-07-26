@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            margin: 25px 0;
+            width: 200px;
+        }
+  
+        table th, table td {
+            padding: 10px;
+            text-align: center;
+        }
+  
+        table, th, td {
+            border: 1px solid;
+        }
+    </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn1").click(function(){
+        $("p").append(" <b>Appended text</b>.").css("color","blue");
+    });
+    $("#btn2").click(function(){
+        $("div>p>label").css("color", "orange");
+        let val= $("div>p>label").html();
+        $("div>p>label").after("<p>"+val+"this is the new conn..." +"</p>").css("color","red");
+        $("ol").append("<li>Appended item</li>");
+    });
+    $("#btn3").click(function(){
+        $("ul").append("<li>Same Job</li>");
+    })
+    let lineNo = 1;
+    $("#btn4").click(function () {
+        console.log("nothing")
+        $("table thead tr th").css("color", "blue");
+        row01 = "<tr>"
+        row01 += "<td>This is row " + lineNo + "</td>";
+        row01 += "<td>This is row " + lineNo + "</td>";
+        row01 += "<td>This is row " + lineNo + "</td>";
+        row01+="</tr>"
+        tableBody = $("table tbody");
+        tableBody.append(row01).css("color","green");
+        lineNo++;
+    });
+
+    let lineNoMid = 101;
+
+    $("#btn5").click(function(){
+        row02 = "<tr>"
+        row02 += "<td>This is row " + lineNoMid + "</td>";
+        row02 += "<td>This is row " + lineNoMid + "</td>";
+        row02 += "<td>This is row " + lineNoMid + "</td>";
+        row02 +="</tr>"
+
+        $("table>tbody>tr").each(function (idx,ele) {
+            if(idx == 0){
+                $("table tbody").before(row02);
+                lineNoMid++;
+            }
+        })
+       
+    })
+});
+</script>
+</head>
+<body>
+<div>
+    <p>This is a paragraph.
+        <label>My Name ...</label>
+    </p>
+</div>
+<p>This is another paragraph.
+    <p>
+        let do this 
+        <label>My goo....</label>
+    </p>
+</p>
+<label>My jojojo....</label>
+<ol>
+  <li>List item 1</li>
+  <li>List item 2</li>
+  <li>List item 3</li>
+</ol>
+
+<ul>
+    <li>New Job</li>
+    <li>Old Job</li>
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>This is row 0</td>
+            <td>This is row 0</td>
+            <td>This is row 0</td>
+        </tr>
+    </tbody>
+</table>
+
+<button id="btn1">Append text</button>
+<button id="btn2">Append list item</button>
+<button id="btn3">Add job</button>
+<button id="btn4">Add table</button>
+<button id="btn5">Add in the midel of the table</button>
+
+
+
+</body>
+</html>
