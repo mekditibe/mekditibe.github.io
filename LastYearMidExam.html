@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+.top{
+    display:flex;
+    justify-content:space-evenly;
+    background-color: blue;
+    color:white;
+}
+.image {
+    width:110px;
+    height: 100px;
+    margin:auto;
+    text-align:center;
+}
+#outBox{
+    display:grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    padding: 10px;
+    /* border:2px solid black; */
+    margin: 4px;
+    width:250px;
+    height: 200px;
+}
+#box2,#box1{
+
+    padding: 10px;
+    border:1px solid black; 
+    margin: 4px;
+}
+select{
+    width:220px;
+    height: 190px;
+}
+
+
+</style>
+<script>
+    var listOfObj=[{plant:"daffodil",color:"yellow"},{plant:"zinnia", color:"purple"}, {plant:"chrysanthumum",color:"pink"},{plant:"lily",color:"pink"}, {plant:"daffodil",color:"green"}];
+    var flag= true;
+    $(document).ready(function(){
+        let start= $("<div><div>Home</div><div>Mission</div><div>Career</div><div>ContactUs</div></div>").addClass("top");
+        $("body").append(start);
+        let im= $("<div><img style='width: 50px;' src= 'images/flower.jpg'/></div>").addClass("image");
+        $("body").append(im);
+        let lorem= "<div><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem vel, totam inventore asperiores assumenda molestias velit accusamus. Aliquid maxime adipisci consectetur molestias, distinctio nobis autem illo laborum ipsum, enim dolorum.</p></div>";
+        $("body").append(lorem);
+        let tex="<div><input style='margin-left:6px' id='textBox1' type='text'/><button style='margin-left:6px' id='butn1'>Delay Color</button><input  style='margin-left:6px' id='textBox2' type='text'/><button  style='margin-left:6px' id='butn2'>Filter</button></div>";
+        $("body").append(tex);
+        let input= listOfObj.map((b)=>"plant - "+b.plant+" color - " +b.color);
+        console.log(input);
+        $("body").append("<div id='outBox'></div>");
+        let object="<div id='box1'><select id='select1'  multiple>";
+        object+= input.map((a)=>"<option>"+a+"</option>");
+        object+="</select></div>";
+        console.log(object);
+        $("#outBox").append(object);
+        $("#outBox").append("<div id='butnDiv'><button style='margin-left:30px' id='move'>Move</button></div>");
+        // $("#outBox").append("<div id='box2'></div>");
+        var rightBox=[];
+        $("#butnDiv").click(function(){
+            console.log("yes");
+            let value= $("div>select option:selected").val();
+            rightBox.push(value);
+            if(flag){
+                let object2="<div style='margin-left:30px' id='box2'><select  id='select2'  multiple>";
+                object2+= rightBox.map((a)=>"<option>"+a+"</option>");
+                object2+="</select></div>";
+                $("#outBox").append(object2);
+                flag=false;
+            }else{
+                let add="<option>"+value+"</option>";
+                $("select").append(add);
+            }
+
+
+        });
+
+    })
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

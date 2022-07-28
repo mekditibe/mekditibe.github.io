@@ -11,12 +11,15 @@
             margin: 10px 0;
             width:200px;
         }
-        table th, table td{
-            padding: 6px;
+        table th, table td,body>div>label{
+            padding: 8px;
             text-align: center;
         }
         table, th,td{
             border: 1px solid
+        }
+        body>div{
+            margin: 10px 0;
         }
     </style>
 
@@ -30,6 +33,15 @@
                 })
                 op+="</select>";
                 $("div>ul").replaceWith(op);
+                $("[name='job']").prop("checked", true);
+                if($("div>div>input").is(":radio") && $("[name='study']:checked")){
+                    $("[name='study']:checked").attr("type","checkbox");
+                    $("[name='study']:checked").prop("checked", true);
+                    $("div>div>span").hide();
+                   // $("div>div>input>.checkClass").remove();
+                    //$("span").remove();
+                }
+
             })  
             $("#butn2").click(function(){
                 $("table tbody").css("color", "green");
@@ -49,25 +61,65 @@
                 // op2+="</ol>";
                 // op+=op2;
             })
-            
+            $("#oneTime").click(function(){
+                let op="<div><textarea></textarea></div>";
+                $("#butn3").before(op);
+                // $("div div>textarea").before("<label>Saved One.</label>")
+                $("div div>textarea").css("width","30%").css("height","100px").css("margin-top","20px").css("margin-bottom","20px");
+            })
+       
+            var saved=[];
+            $("#butn3").click(function(){
+                console.log("anything..");
+                let gender= $("[name='gender']:checked").val();
+                let name = $("[name='fname']").val();
+                let age = $("[name='age']").val();
+                let email = $("[name='email']").val();
+                saved.push([name,age,email,gender]);
+                let out = saved.map((a, index,array)=>index+" - "+ a.toString()+"\n");
+                console.log(out);
+                $("div div>textarea").val(out);
+            });
+
         });
+
+        // document.getElementsByTagName("textarea").value= out;
+        //         
     </script>
 </head>
 <body>
+    
     <div>
         <ul>
-            <li>List 1</li>
-            <li>List 2</li>
-            <li>List 3</li>
-            <li>List 4</li>
+            <li>List 1lo</li>
+            <li>List 2lo</li>
+            <li>List 3lo</li>
+            <li>List 4lo</li>
         </ul>
+
+        <div>
+            <label>Job Type.</label>
+            <span>Oneline</span>
+            <input class="checkClass" type="checkbox" name="job" value="online"/>
+            <span>OnOffice</span>
+            <input class="checkClass" type="checkbox" name="job" value="offline"/>
+        </div>
+        <div>
+            <label>Study Type.</label>
+            <span>Oneline</span>
+            <input class="checkClass" type="radio" name="study" value="online"/>
+            <span>OnOffice</span>
+            <input class="checkClass" type="radio" name="study" value="offline"/>
+        </div>
     </div>
     <!-- <select>
         <option></option>
     </select> -->
     <div>
-        <button id="butn1">Cleck To change</button>
+        <button id="butn1">Cleck To change</button> 
+        <button id="oneTime">oneTime</button>
     </div>
+    
     <br>
     <h>After button</button> </h>
   <table>
@@ -101,6 +153,28 @@
     <button id="butn2">Cleck To Change The Table</button>
 </div>
 <br>
+<div>
+    <label>Name</label>
+    <input type="text" name="fname"/>
+</div>
+<div>
+    <label>Age</label>
+    <input type="number" name="age"/>
+</div>
+<div>
+    <label>Email</label>
+    <input type="text" name="email"/>
+</div>
+<div>
+    <label>Gender</label>
+    <span>F</span>
+    <input class="checkClass" type="radio" name="gender" value="female"/>
+    <span>M</span>
+    <input class="checkClass" type="radio" name="gender" value="male"/>
+</div>
+<div>
+    <button id="butn3"> Save Data</button>
+</div>
 
 </body>
 </html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+    div{
+        margin:10px;
+    }
+</style>
+<script>
+    var saved=[];
+$(document).ready(function(){
+
+    $("#butn1").before("<div><textarea></textarea></div>");
+
+    $("#butn1").click(function(){
+        $("#id3").toggle();
+
+        // $("body>div").each(function(index,element){
+        //     //$(element).attr("id","id"+index+"");
+        //     //$("div>input").each(function(inx,ele){
+        //     //$(ele).attr("id","id"+index+inx+"").attr("class","class"+ index+"").attr("name","input"+inx+"");
+        //     })
+        // })
+
+    })
+    $("#butn2").click(function(){
+        let name = $("#id1").val();
+        let gender = $("#id2").val();
+        let job = $("[name='It']option:selected").val();
+        saved.push([name,gender,job]);
+        //console.log(name,gender,job);
+        $("textarea").val(saved);
+        //$("div>textarea").hide();
+        $("div>textarea").slideDown("slow");
+    
+    })
+
+})
+
+</script>
+
+</head>
+<body>
+   <h1>Work out</h1> 
+   <div>
+    <label>Name</label>
+    <input id="id1" class="same" type="text" name=""/>
+    <label>Gender F</label>
+    <input id="id2" class="same" type="checkbox" value="F"/>
+    <label>Job Option</label>
+    <select>
+        <option name="It">Select</option>
+        <option name="It">IT</option>
+        <option name="It">Admin</option>
+        <option name="It">DevOps</option>
+    </select>
+   </div>
+   <div id="id3">
+    <p>Dear Lorem,</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, dolor accusantium voluptatem, ut harum consequuntur corporis sunt quae laborum dolore soluta, dolorem a ex magnam aliquam vel doloremque pariatur iusto.</p>
+    <p>Regardes,</p>
+    <p>Mekdes</p>  
+    </div>
+   <div>
+    <button id="butn1">Cleck Here</button>
+    <button id="butn2">Cleck To Change</button>
+    
+   </div>
+   <div>
+   </div>
+</body>
+</html>

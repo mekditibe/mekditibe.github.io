@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideDown(5000);
+  });
+  $("#stop").click(function(){
+    $("#panel").stop();
+  });
+
+  $("#btn0").click(function(){
+    let v= $("#w3s").attr("href");
+    let l= $("#in1").attr("value");
+
+    let p= "<p>My linke is here  :  "+ v +"</p>";
+    let p2= "<p>My name is here  :  "+ l +"</p>";
+
+    //alert($("#w3s").attr("href"));
+     $("div>button").before(p).before(p2);
+  });
+
+  $("#btn1").click(function(){
+    $("#test1").text("Hello world!");
+  });
+  $("#btn2").click(function(){
+    $("#test2").html("Tebebu: Long time <b>Hello world!</b> right ? <p>Mekdes: yes my fraind</p>");
+  });
+  $("#btn3").click(function(){
+    $("#test3").val("Dolly Duck");
+  });
+
+  $("#btn4").click(function(){
+    $("#test41").text(function(i, origText){
+      return "Old text: " + origText + " New text: Hello world! (index: " + i + ")"; 
+    });
+  });
+
+  $("#btn5").click(function(){
+    $("#test42").html(function(i, origText){
+      return "Old html: " + origText + " New html: Hello <b>world!</b> (index: " + i + ")"; 
+    });
+  })
+  $("#btn6").click(function(){
+    $("p").last().prepend("<b>Prepended text</b>. ");
+  });
+  $("#btn7").click(function(){
+    $("ol").prepend("<li>Prepended item</li>");
+  });
+
+  function appendText(){
+    var txt1 = "<p>Text1.</p>";        // Create text with HTML
+    var txt2 = $("<p></p>").text("Text2.");  // Create text with jQuery
+    var txt3 = document.createElement("p");
+    txt3.innerHTML = "Text3.";         // Create text with DOM
+    $("body").append(txt1, txt2, txt3);   // Append new elements
+  }
+
+
+});
+</script>
+<style> 
+#panel, #flip {
+  padding: 5px;
+  font-size: 18px;
+  text-align: center;
+  background-color: #555;
+  color: white;
+  border: solid 1px #666;
+  border-radius: 3px;
+}
+
+#panel {
+  padding: 50px;
+  display: none;
+}
+</style>
+</head>
+<body>
+ 
+<button id="stop">Stop sliding</button>
+
+<div id="flip">Click to slide down panel</div>
+<div id="panel">Hello world!</div>
+
+
+<div>
+    <p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+    <button id = "btn0">Show href Value</button>
+    <input id= "in1" type="text" name="boo" value="now"/>
+
+</div>
+<div>
+<p id="test1">This is a paragraph.</p>
+<p id="test2">This is another paragraph.</p>
+
+<p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+
+<button id="btn1">Set Text</button>
+<button id="btn2">Set HTML</button>
+<button id="btn3">Set Value</button>
+</div>
+<div>
+    <p id="test41">This is a <b>bold</b> paragraph.</p>
+<p id="test42">This is another <b>bold</b> paragraph.</p>
+
+<button id="btn4">Show Old/New Text</button>
+<button id="btn5">Show Old/New HTML</button>
+</div>
+<div>
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+
+<ol>
+  <li>List item 1</li>
+  <li>List item 2</li>
+  <li>List item 3</li>
+</ol>
+
+<button id="btn6">Prepend text</button>
+<button id="btn7">Prepend list item</button>
+</div>
+
+<div>
+<p>This is a paragraph.</p>
+<button onclick="appendText()">Append text</button>
+</div>
+</body>
+</html>

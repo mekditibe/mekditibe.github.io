@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        var object= {
+            fname:'Mekdes',
+            lname:'Teffera',
+            skill:["java","R"]
+
+        }
+        $(document).ready(function(){
+            $("#but1").click(function(){
+                for(let i of Object.keys(object)){
+                    let leb= "<label></label>";
+                    let input= "<input id="+ i +"/>";
+                    $("#but1").before(leb);
+                    $("div>label").html(i);
+                    $("div>label").after(input);
+                   // $("div>input").attr('id', i);
+                    $("div>input").attr('type', 'text');
+                    $("div>input").html(object[i]);
+
+                    // for(let s of object[i]){
+
+
+                    // }
+                }
+               ;
+                console.log("will")
+                // let fname= ""
+                // console.log(object.skill);
+                // $(skill)
+                //.append(object.skill.map((a,index)=>"<option>"+ a +"</option>"));
+                //console.log($(skill).append(object.skill.map((a,index)=>"<option>"+ a +"</option>")));
+                // let op="<option>"+ object.skill[0]+"</option>";
+                // op+="<option>"+ object.skill[1]+"</option>";
+                // $(fname).attr("type","text");
+                // $(lname).attr("type","text");
+
+            });
+            
+        })
+</script>
+</head>
+<body>
+    <h1>New Work</h1>
+    <div>
+        <label>Firat Name</label>
+        <input type="text" name="fname"/>
+        <label>Last Name</label>
+        <input type="text" name="lname"/>
+        
+    </div>
+    <br>
+    <button id="but1">Console</button>
+</body>
+</html>

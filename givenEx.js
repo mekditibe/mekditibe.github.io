@@ -11,3 +11,10 @@ let chc="<label>Add new lebel</label>";
 // const d= document.createElement("div");
 // d.innerText="Demo";
 // document.body.appendChild("id2").appendChild(d);
+
+let saved=[];
+saved.push(["mekdes",22,"mekdes@cznk","femal"]);
+
+let out = saved.map((a, index,array)=>index+" - [ "+a+" ] .");
+
+console.log(out);

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+    table th,td{
+        padding:6px;
+        border:1px solid;
+    }
+    table {
+        align-items: center;
+        border: 1px solid;
+    }
+</style>
+<script>
+
+var persones = [{Name: "Tutu",Age: 39,Salery:11100,Company: "Microsoft",StartDate:new Date(2002,8,11).toString()}
+,{Name: "Gatu",Age: 62, Salery:10620, Company: "Amazon",StartDate:new Date(2018,5,9).toString() }
+,{Name: "Jon",Age: 19,Salery:1080,Company: "Microsoft",StartDate:new Date(2002,8,11).toString()}
+,{Name: "Tina",Age: 27,Salery:1090,Company: "Amazon",StartDate:new Date(2018,5,9).toString() }
+,{Name: "Jim",Age: 25,Salery:13020,Company: "CISCO",StartDate:new Date(2018,5,9).toString() }
+,{Name: "Tgo",Age: 38,Salery:19900,Company: "CISCO",StartDate:new Date(2002,8,11).toString()}
+,{Name: "Tsion",Age: 22,Salery:100020,Company: "CISCO",StartDate:new Date(2018,5,9).toString()}
+,{Name: "Mekdes",Age: 29,Salery:10000,Company: "CISCO",StartDate:new Date(2002,8,11).toString()}
+];
+
+
+
+    $(document).ready(function(){
+
+
+        //Headers(h1...h6), Images (img), Anchor(a), paragraph(p)
+        let op="<h6>Header level 6</h6>";
+        let im= "<div><img src='images/clock.png'/></div>";
+        let a= "<div><a href='www.google.com'> Google</a></div>";
+        let p = "<div><p>This is my para.....</p></div>";
+
+        $("h1").after(op);
+        $("h1").after(im);
+        $("h1").after(a);
+        $("h1").after(p);
+        $("p").html("Headers(h1...h6), Images (img), Anchor(a), paragraph(p)");
+
+        let table = "<table><tr><th>Name</th><th>Age</th><th>Salery</th><th>Company</th><th>StartDate</th></tr>";
+        table+= persones.map((a)=>"<tr><td>"+ a.Name+"</td><td>"+ a.Age+"</td><td>"+ a.Salery+"</td><td>"+ a.Company+"</td><td>"+ a.StartDate+"</td></tr>");
+        table+="</table>";
+        //console.log(table);
+        $("h6").after(table).css("padding-bottom","30px");
+
+        let lu= "<ul><li> theis one </li> <li> that one </li></ul>";
+        $("p").append(lu);
+        //All Form Controls radio, checkbox, text field, textarea, select
+
+        let rad= "<div><label>Button<input type='radio' name='radio'/></label></div>"
+        $("h6").append(rad);
+        let chec= "<div><label>Checkbox Button<input type='checkbox' name='checkbox'/></label></div>"
+        $("h6").append(chec);
+        let text= "<div><label>name<input type='text' name='text'/></label></div>"
+        $("h6").append(text);
+        let textar= "<div><label>Text textarea<textarea></textarea></label></div>"
+        $("h6").append(textar);
+       // setInterval(fun(), 1000);
+        function fun(){
+            console.log($("[name='checkbox']:checked"));
+            return function(){
+                if($("[name='checkbox']:checked")){
+                console.log($("#checkbox").html());
+                $("#checkbox").attr("type","text");
+                }
+            }
+        }
+        
+        
+    })
+
+
+</script>
+</head>
+<body>
+    <h1>Work out</h>
+    
+</body>
+</html>
