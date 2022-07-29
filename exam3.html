@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sep{
+            display:grid;
+            grid-template-rows: 1fr 1fr;
+            margin: 10px;
+        }
+        label{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form class="sep">
+        <label> Username
+            <input name="username" placeholder="username" type="text"  />
+        </label>
+    
+        <label> Confirm
+            <input name="sure" type="radio"/> 
+        </label>
+        
+        <label> Yes
+            <input name="yes" type="checkbox"/>
+        </label>
+
+        <label>Discription
+            <input style="border: 1px solid blue;">  
+        </input>
+        </label>
+        
+        <label for="cars">Choose a car:</label>
+        <select name="cars" id="cars">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+
+    </form>
+</body>
+</html>

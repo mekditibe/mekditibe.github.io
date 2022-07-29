@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        div, label{
+            margin-bottom:10px;
+        }
+    </style>
+    <script>
+        let objectArray = [{Name:'Ram',Age:30,Skills:['java','javascript']},{Name:'Shyam',Age:20,Skills:['python','c']}] 
+        console.log(objectArray[0]);
+        $(document).ready(function(){
+            let op= "<select><option>select name</option>";
+            for(let oj in objectArray){
+                op+= objectArray.map((a)=>"<option id='nameOj' value=''>"+a.Name +"</option>");
+            }
+            op+="</select>";
+            //$(op).attr('id',"drop");
+            
+            $("div>label").after(op);
+            //console.log($("select>option").html());
+            
+            
+            $("#butn0").click(function(){
+                $("select>option").each(function(index,ele){
+                    if(index === 1){
+                        let selectedPerson= objectArray[index-1];
+                        console.log(selectedPerson.Age);
+                        let jo= "<div><label>Age</label><input id='ageId' name = 'age' type='text' value=''/> </div>";
+                        $("#butn1").before(jo);
+                        $("#ageId").val(selectedPerson.Age);
+                        //let getvl= objectArray
+                        let skiless= selectedPerson.Skills; 
+                        let jo1= "<label style='margin-left:7px'>Skills</label><label>"+skiless[0] +"</label><input type='checkbox' name='skil' /><label>"+ skiless[1] +"</label><input type='checkbox' name='skil' />";
+                        $("#butn1").before(jo1);                        
+                    }
+                    
+                });
+                
+            });
+
+            $("#butn1").click(function(){
+                let arr1= ['Spring',"Hibernate" ];
+                console.log("yes");
+                let sub= "<div id='subX'><select><option>select sub skill</option>";
+                sub+= "<option id='sub' value=''>"+arr1[0] +"</option><option id='sub' value=''>"+arr1[1] +"</option>";
+                sub+="</select></div>";
+                $("#butn1").before(sub);
+
+            })
+
+            let outSk= objectArray[0];
+            
+            console.log()
+            if(outSk.Skills[0]==='java'){
+                $("#subX").hide();
+            }
+
+            
+        })
+
+    </script>
+</head>
+<body>
+    <div>
+        <div><label style='margin-left:7px'>Select Student</label>
+            <button id="butn0">Populate </button>  
+        </div>
+    </div>
+    <div>
+        <button id="butn1" >Submit</button>
+    </div>
+</body>
+</html>

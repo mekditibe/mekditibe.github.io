@@ -1,0 +1,220 @@
+<!-- <!DOCTYPE html>
+<html>
+	<body>
+		<h1>Geeksforgeeks</h1>
+
+		<p>Name of the id is :
+		<span id="geeks"></span>
+		</p>
+
+		<script>
+			
+			// This is our array of Objects
+			var data = [
+				{ id: 1, name: "a" ,age:12},
+				{ id: 2, name: "b" ,age:12},
+				{ id: 3, name: "c" ,age:12},
+				{ id: 4, name: "d" ,age:12},
+				{ id: 5, name: "e" ,age:12},
+				{ id: 6, name: "f" ,age:12},
+			];
+
+			let idYouWant = 1;
+			let propertyYouWant = "age";
+
+			// Using Array.filter( ) method
+			// we are iterating through each
+			// items in the array and
+			// checking which item's
+			// id value is equal to the id we want
+
+			let res = data.filter((item) => {
+				return item.id == idYouWant;
+			});
+
+			// After using filter method we got an array
+			// of object. Now take its first element and
+			// use its 'propertyYouWant' key
+			let exactRes = res[0][propertyYouWant];
+
+			// Printing the property we want
+			document.getElementById("geeks").innerText = exactRes;
+		</script>
+	</body>
+</html> -->
+
+
+<!-- <!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>
+		Ways to print all methods of an object.
+	</title> -->
+
+	<!-- <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+	</script>
+</head>
+
+<body style="text-align:center;">
+	
+	<h1 style="color: green">
+		GeeksForGeeks
+	</h1>
+	
+	<p id="GFG_UP" style=
+		"font-size: 15px;font-weight: bold;">
+	</p>
+	
+	<button onclick="gfg_Run()">
+		Click Here
+	</button>
+	
+	<p id="GFG_DOWN" style="color:green;
+			font-size: 30px; font-weight: bold;">
+	</p>
+	
+	<script>
+		var el_up = document.getElementById("GFG_UP");
+		
+		var el_down = document.getElementById("GFG_DOWN");
+		
+		el_up.innerHTML = "Click on the button to get "
+					+ "the all methods of any Object.";
+
+		function Obj() {
+			this.m1 = function M1() {
+				return "From M1";
+			}
+			this.m2 = function M2() {
+				return "From M2";
+			}
+		}
+
+		function getAllMethods(obj = this) {
+			return Object.keys(obj)
+				.filter((key) => typeof obj[key] === 'function')
+				.map((key) => obj[key]);
+		}
+
+		function gfg_Run() {
+			el_down.innerHTML = getAllMethods(new Obj());
+		}
+	</script>
+</body>
+
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		How to remove Objects from
+		Associative Array in JavaScript ?
+	</title>
+</head>
+
+<body style="text-align:center;">
+	
+	<h1 style="color:green;">
+		GeeksforGeeks
+	</h1>
+	
+	<h3>
+		How to remove Objects from
+		Associative Array in JavaScript ?
+	</h3>
+	
+	<script>
+	
+		// JavaScript code to remove
+		// objects from associative array
+		function deleteObjects(){
+			
+			// Declaring an associative
+			// array of objects
+			var arr = new Object();
+				
+			// Adding objects in array
+			arr['key'] = 'Value';
+			arr['geeks'] = 'GeeksforGeeks';
+			arr['name'] = 'Rajnish';
+				
+			// Checking object exist or not
+			document.write(arr['name'] + '</br>');
+				
+			// Removing object from
+			// associative array
+			delete arr['name'];
+				
+			// It gives result as undefined
+			// as object is deleted
+			document.write(arr['geeks'] + '</br>');
+		}
+			
+		// Calling function
+		deleteObjects();
+	</script>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+	Get a subset of a javascript object’s properties
+</title>
+<style>
+    ol{
+        list-style-type:lower-roman; 
+    }
+</style>
+<script>
+    $(document).ready(function(){
+        $("ol:nth-of-type(1)").append("<li>list three</li>")
+        obj = {
+            property1: 5,
+            property2: 6,
+            property3: 7
+        };
+        subset = (({property1, property3}) => ({property1, property3}))(obj);
+
+        var output = 'Subset Object: <br>';
+        for (var property in subset) {
+            output += property + ': ' + subset[property] + ';<br>';
+        }
+        document.write(output);
+            
+    })
+    
+</script>
+
+</head>
+
+<body>
+	<h1 style="color:green">
+		GeeksforGeeks
+	</h1>
+		<h2>
+		Get a subset of a javascript object’s properties
+	</h2>
+		
+
+<div id ="id1">
+    <p >this is new params</p>
+    <div>
+        <ol>
+            <li>list one</li>
+            <li>list two</li>
+        </ol>
+    </div>
+</div>
+</body>
+
+</html>
