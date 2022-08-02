@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="direction">
+        <label>Direction</label>
+        <select id="selectDirection">
+            <option>Vertical</option>
+            <option>Horizontal</option>
+        </select>
+    </div>
+    <br/>
+    <div id="filterDiv">
+        <label>Filter</label>
+        <select id="selectFilter">
+            <option>All</option>
+            <option>Even</option>
+            <option>Odd</option>
+        </select>
+    </div>
+    <br/>
+    <div>
+        <button onclick="move()">Print</button>
+    </div>
+    <script>
+        let planetsArray =['Earth','Venus','Jupiter','Mars','Mercury','Saturn','Uranus'];
+        function move(){
+            console.log("yes");
+            console.log($("#selectDirection option:selected").val());
+            let horizontalPrint= "<label></label>";
+            if($("#selectDirection option:selected").val() === "Vertical" && $("#selectFilter option:selected").val() === "All"){
+                // planetsArray.forEach((ele,index,array)=>{
+                //     console.log(ele,index,array);
+                    setInterval(verticalPrint(), 1000,1);
+                // })
+            }else if($("#selectDirection option:selected").val() === "Horizontal" && $("#selectFilter option:selected").val() === "All"){
+                $("div").last().append("<br>")
+                planetsArray.forEach((ele,index,array)=>{
+                    console.log(ele,index,array);              
+                    setTimeout(function(){$("div").last().append( "<label>"+ele + "</label>")},1000);
+                })
+            }
+
+            if($("#selectFilter option:selected").val() === "Even"  && $("#selectDirection option:selected").val() === "Vertical"){
+                planetsArray.forEach((ele,index,array)=>{
+                    if((index+1)%2 === 0){
+                        console.log(ele,index,array);
+                        setTimeout(function(){$("div").last().append( "<p>"+ele + "</p>")},1000);
+                    }
+
+                })
+            }else if($("#selectFilter option:selected").val() === "Odd"  && $("#selectDirection option:selected").val() === "Vertical"){
+                planetsArray.forEach((ele,index,array)=>{
+                    if((index+1)%2 !== 0){
+                        console.log(ele,index,array);
+                        setTimeout(function(){$("div").last().append( "<p>"+ele + "</p>")},1000);
+                    }
+
+                })
+            }else if($("#selectFilter option:selected").val() === "Even"  && $("#selectDirection option:selected").val() === "Horizontal"){
+                $("div").last().append("<br>")
+                planetsArray.forEach((ele,index,array)=>{
+                    if((index+1)%2 === 0){
+                        console.log(ele,index,array);
+                        setTimeout(function(){$("div").last().append( "<label>"+ele + "</label>")},1000);
+                    }
+
+                })
+            }else if($("#selectFilter option:selected").val() === "Odd"  && $("#selectDirection option:selected").val() === "Horizontal"){
+                $("div").last().append("<br>")
+                planetsArray.forEach((ele,index,array)=>{
+                    if((index+1)%2 !== 0){
+                        console.log(ele,index,array);
+                        setTimeout(function(){$("div").last().append( "<label>"+ele + "</label>")},1000);
+                    }
+
+                })
+            }     
+        }        
+        function verticalPrint(){ 
+            i=-1;
+          return function(m){
+                i=i+m;
+                if(planetsArray.length == i){
+                    clearInterval(this);
+                }else{
+                    $("div").last().append( "<p>"+ planetsArray[i] + "</p>")
+                }
+            }
+        }
+    </script>
+    </div>
+</body>
+</html>
+
