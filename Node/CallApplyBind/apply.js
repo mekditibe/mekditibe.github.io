@@ -455,17 +455,90 @@
 //   sam(); // this = window
 //   console.log(newvar); //hello 
 
-function multiply(a, b,c) {
-  return (a * b) - c; //no usage of ‘this’
- }
- const multipleByTwo = multiply.bind(null, 3,4); // set a = 2
- var sec= multipleByTwo(2);
- var sec2 = multipleByTwo(1);
+// function multiply(a, b,c) {
+//   return (a * b) - c; //no usage of ‘this’
+//  }
+//  const multipleByTwo = multiply.bind(null, 3,4); // set a = 2
+//  var sec= multipleByTwo(2);
+//  var sec2 = multipleByTwo(1);
 
 
- console.log(sec2);
+//  console.log(sec2);
 
 
 
 //  const multipleByThree = multiply.bind(null, 3); // set a = 3
 //  console.log(multipleByThree(4)); // 12
+
+// function log() {
+//   console.log("No Arguments");
+//   }
+//   function log(x) {
+//   console.log("1 Argument: " + x);
+//   }
+//   function log(x, y) {
+//   console.log("2 Arguments: " + x + ", " + y);
+//   }
+//   log();
+//   log(5);
+//   log(6, 7);
+
+// function findMax() {
+//   let max = -Infinity;
+//   for (let i = 0; i < arguments.length; i++) {
+//     if (arguments[i] > max) {
+//       max = arguments[i];
+//     }
+//   }
+//   return max;
+// }
+//   const max1 = findMax(1, 123, 500, 115, 66, 88);
+//   const max2 = findMax(3, 6, 8);
+
+//   console.log(max2);
+//   console.log(max1);
+
+// function sum(x, y, ...more) {
+//   //"more" is array of all extra passed params
+//   let total = x + y;
+//   if (more.length > 0) {
+//     for (let i = 0; i < more.length; i++) {
+//       total += more[i];
+//     }
+//   }
+//   console.log("Total: " + total);
+//   return total;
+//   }
+//   sum(5, 5, 5);
+//   sum(6, 6, 6, 6, 6);
+
+// const obj1 = { jon:{'name':'Joun Back'},foo: 'bar', x: 42 };
+// const obj2 = { foo: 'baz', y: 13 };
+// const clonedObj = { ...obj1, ...obj1.jon };
+// // Object { foo: "bar", x: 42 }
+// const mergedObj = { ...obj1, ...obj2 };
+// // Object { foo: "baz", x: 42, y: 13 }
+// mergedObj.foo='dam';
+// console.log(mergedObj,obj2);
+  
+// const address = [221, 'Baker Street','London'];
+// const [ houseNo, , city ] = address;
+// console.log(houseNo, city)// 221 'London’
+// const details ={firstName:'Code', lastName:'Burst', age: 22};
+// const { firstName, age } = details;
+// console.log(firstName, age);// Code 22
+
+
+// function fun(x,y,...z){
+//   console.log("x and y: ",x,y);
+//   console.log("More ...: ",z);
+//   console.log("arguments: ...",arguments);
+//   console.log("Last: ...",arguments[arguments.length-1]);
+//   outVar= [x,y,[...z]]; 
+
+// }
+
+// fun(1,2,3,4,5,6,[2,3,5],{a:2,c:4});
+// console.log(outVar);
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Customer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+         $(document).ready(function(){
+            //require("./loger");
+            $("#btn").click(function(){
+                const baseUrl="http://127.0.0.1:8081/viewCust";
+                async function getinfo(e){
+                    e.preventDefault();
+                    const response= await fetch(baseUrl,{
+                        method:"GET"
+                    })
+
+                    //console.log(res);
+                    const data = await res.json();
+                    //console.log(data.info);
+                    $("#into").val(data.info);
+                }
+            
+            })
+            
+
+
+            // var listCustomer= require("./exer");
+            // console.log(listCustomer);
+            // $("table tbody tr:nth-of-type(2)").append(`<td> ${"Tsion"} </td>``<td> ${"Teffera"} </td>``<td> ${"tsion.@gmail.com"} </td>`)
+
+        })
+        
+    </script>
+</head>
+<body>
+    <form id="getCust" method="POST" action="/" >
+        <fieldset> View Customer
+            <table>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+                <tr>
+                    
+                </tr>
+            </table>
+
+
+            <div>
+                <input id='into' type='text' value=''/>
+                <button id="btn" >Get From Server</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

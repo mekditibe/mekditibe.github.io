@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+    <h1>Well come!!</h1>
+    <div></div>
+    <div>
+        <input id="into" type='text' value=''/>
+        <button id="btn1" >Get From Server</button>
+        <button id="btn2" >POST To Server</button>
+
+    </div>
+</form>
+    <script>
+        const getBtn1 = document.getElementById('btn1');
+        const getBtn2 = document.getElementById('btn2');
+        const textout = document.getElementById('into');
+
+        const baseUrl="http://127.0.0.1:8080/info";
+        getBtn1.addEventListener('click', getinfo);
+        async function getinfo(e){
+            e.preventDefault();
+            try{
+                console.log("good boy..................");
+                const responseVal= await fetch(baseUrl,{
+                    method:"GET"
+                    //mode: 'no-cors'
+                    // headers: {
+                    //     accept: 'application/json',
+                    // },
+                })
+                if (!responseVal.ok) {
+                    throw new Error(`Error! status: ${responseVal.status}`);
+                }
+                console.log("good boy..................");
+                console.log(responseVal);
+                const data = await responseVal.json();
+                console.log(data.info);
+                textout.value= data.info;
+
+            }catch (err) {
+                console.log(err);
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

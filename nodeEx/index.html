@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" async></script>
+    <script>
+        $(document).ready(function(){
+           //require("./loger");#
+
+           $("#btn1").click(function(){
+               const baseUrl="http://127.0.0.1:8081/info";
+               function getinfo(){
+                console.log("good boy..................");
+
+                  // e.preventDefault();
+                   const response= await fetch(baseUrl,{
+                       method:"GET"
+                   })
+
+                   console.log(res);
+                   const data = await res.json();
+                   console.log(data.info);
+                   $("#into").val(data.info);
+               }
+
+               getinfo();
+           
+           })
+           // var listCustomer= require("./exer");
+           // console.log(listCustomer);
+           // $("table tbody tr:nth-of-type(2)").append(`<td> ${"Tsion"} </td>``<td> ${"Teffera"} </td>``<td> ${"tsion.@gmail.com"} </td>`)
+
+       })
+       
+   </script>
+</head>
+<body>
+    <h1>Well come home !!!</h1>
+    <div>
+        <input id='into' type='text' value=''/>
+        <button id="btn1" >Get From Server</button>
+        <button id="btn2" >POST To Server</button>
+
+    </div>
+</body>
+</html>

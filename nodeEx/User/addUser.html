@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user</title>
+    <style>
+        div{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="user" method="POST" action="/saveUser">
+        <fieldset>
+            <legend>User Registeration</legend>
+            <div>
+                <label>User ID</label>
+                <input type="text" name="userId"/>
+                <label>User Name</label>
+                <input type="text" name="username"/>
+            </div>
+            <div>
+                <select name="usertype">
+                    <optgroup name="technical" label="Technical">
+                        <option name="technical_java" value="technical_java">Java</option>
+                        <option name="technical_python" value="technical_python">Python</option>
+
+                    </optgroup>
+                    <optgroup name="nontechnical" label="Non Technical">
+                        <option name="nontechnical_communication" value="nontechnical_communication">Communication</option>
+                        <option name="nontechnical_leadership" value="nontechnical_leadership">Leadership</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div><input type="submit" value="Submit"/></div>
+        </fieldset>
+    </form>
+    
+</body>
+</html>
