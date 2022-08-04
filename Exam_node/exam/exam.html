@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="treeForm" method="POST" action="/post">
+        <label>Tree</label>
+        <input type='text' name="tree" required/>
+        <br /><br />
+        <label>Type</label>
+        <label>Shurbs</label><input type='radio'  value='shurbs' name="shurbs" />
+        <label>Creepers</label><input type='radio'  value='creepers' name="creepers" />
+        <br /><br />
+        <label>Category</label>
+        <select name="category" multiple required>
+            <option name="category_indoor">Indoor</option>
+            <option name="category_outdoor">Outdoor</option>
+        </select>
+        <br /><br />
+        <input type="submit" value="submit" />
+    </form> 
+
+</body>
+</html>
